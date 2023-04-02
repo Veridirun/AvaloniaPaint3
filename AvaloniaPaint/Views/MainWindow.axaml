@@ -1,0 +1,224 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaPaint.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:models="clr-namespace:AvaloniaPaint.Models;assembly=AvaloniaPaint"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="450"
+        x:Class="AvaloniaPaint.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaPaint"
+		xmlns:local="clr-namespace:AvaloniaPaint.Converters">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<Window.Resources>
+		<local:ColorConverter x:Key="colorConverter"/>
+		<local:DoubleIntConverter x:Key="doubleIntConverter"/>
+		<local:GeometryParser x:Key="geometryParser"/>
+	</Window.Resources>
+    
+	<Grid ShowGridLines="True" RowDefinitions="29, *" >
+		<DockPanel Grid.Row="0">
+			<Menu Name="menuExport" DockPanel.Dock="Top">
+				<MenuItem Header="_Экспортировать">
+					<MenuItem Header="_XML" Click="OnExportMenuClickXML"/>
+					<MenuItem Header="_JSON" Click="OnExportMenuClickJSON"/>
+					<MenuItem Header="_PNG" Click="SaveFileDialogMenuPngClick"/>
+					<Separator/>
+					<MenuItem Header="_Закрыть"/>
+				</MenuItem>
+				<MenuItem Header="_Импортировать">
+					<MenuItem Header="_XML" Click="OnImportMenuClickXML"/>
+					<MenuItem Header="_JSON" Click="OnImportMenuClickJSON"/>
+					<Separator/>
+					<MenuItem Header="_Закрыть"/>
+				</MenuItem>
+			</Menu>
+
+		</DockPanel>
+
+		<Grid ShowGridLines="{Binding $parent.ShowGridLines}" Grid.Row="1" ColumnDefinitions="0.4*, *, 0.3*">
+			<Grid ShowGridLines="{Binding $parent.ShowGridLines}" Grid.Column="0" RowDefinitions="29, *, 29">
+				
+				<ComboBox SelectedIndex="{Binding SelectedFigureIndex}" Items="{Binding	VmbaseCollection}">
+					<ComboBox.DataTemplates>
+						<DataTemplate>
+							<TextBlock Text="{Binding ViewName}"/>
+						</DataTemplate>
+					</ComboBox.DataTemplates>
+				</ComboBox>
+				
+				<ContentControl Grid.Row="1" Content="{Binding Content}"/>
+				<Grid Grid.Row="2" ColumnDefinitions="*,*">
+					<Button Name="buttonAdd" Grid.Column="0" 
+							HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" 
+							Content="Добавить" Command="{Binding buttonAdd}"></Button>
+					<Button Name="buttonClear" Grid.Column="1" 
+							HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" 
+							Content="Очистить" Command="{Binding buttonClear}"></Button>
+				</Grid>
+			</Grid>
+			
+			<ItemsControl Grid.Column="1"
+						  Width="{Binding $parent.Width}"
+						  Height="{Binding $parent.Height}"
+						  Items="{Binding FigureCollection}"
+						  PointerPressed="PointerPressedOnCanvas"
+						  DragDrop.AllowDrop="True">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<Canvas Name="canvas" Background="White"/>
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+				<ItemsControl.DataTemplates>
+					
+					<DataTemplate DataType="{x:Type	models:PaintLine}">
+						<Line StartPoint="{Binding StartLinePoint}"
+							  EndPoint="{Binding EndPoint}"
+							  Stroke="{Binding Stroke, Converter={StaticResource colorConverter}}"
+							  StrokeThickness="{Binding StrokeThickness}">
+							<Line.RenderTransform>
+								<TransformGroup>
+									<RotateTransform Angle="{Binding RotateAngle}"
+													 CenterX="{Binding RotateCenter.X, Converter={StaticResource doubleIntConverter}}"
+													 CenterY="{Binding RotateCenter.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<TranslateTransform X="{Binding StartPoint.X, Converter={StaticResource doubleIntConverter}}"
+														Y="{Binding StartPoint.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<ScaleTransform ScaleX="{Binding Scale.X, Converter={StaticResource doubleIntConverter}}"
+												   ScaleY="{Binding Scale.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<SkewTransform AngleX="{Binding Skew.X, Converter={StaticResource doubleIntConverter}}"
+												   AngleY="{Binding Skew.Y, Converter={StaticResource doubleIntConverter}}"/>
+								</TransformGroup>
+							</Line.RenderTransform>
+						</Line>
+					</DataTemplate>
+					
+					<DataTemplate DataType="{x:Type	models:PaintPolyline}">
+						<Polyline Points="{Binding Points}"
+							  Stroke="{Binding Stroke, Converter={StaticResource colorConverter}}"
+							  StrokeThickness="{Binding StrokeThickness}">
+							<Polyline.RenderTransform>
+								<TransformGroup>
+									<RotateTransform Angle="{Binding RotateAngle}"
+													 CenterX="{Binding RotateCenter.X, Converter={StaticResource doubleIntConverter}}"
+													 CenterY="{Binding RotateCenter.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<TranslateTransform X="{Binding StartPoint.X, Converter={StaticResource doubleIntConverter}}"
+														Y="{Binding StartPoint.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<ScaleTransform ScaleX="{Binding Scale.X, Converter={StaticResource doubleIntConverter}}"
+												   ScaleY="{Binding Scale.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<SkewTransform AngleX="{Binding Skew.X, Converter={StaticResource doubleIntConverter}}"
+												   AngleY="{Binding Skew.Y, Converter={StaticResource doubleIntConverter}}"/>
+								</TransformGroup>
+							</Polyline.RenderTransform>
+						</Polyline>
+					</DataTemplate>
+
+					<DataTemplate DataType="{x:Type	models:PaintPolygon}">
+						<Polygon Points="{Binding Points}"
+							  Stroke="{Binding Stroke, Converter={StaticResource colorConverter}}"
+							  StrokeThickness="{Binding StrokeThickness}"
+							  Fill="{Binding FillColor, Converter={StaticResource colorConverter}}">
+							<Polygon.RenderTransform>
+								<TransformGroup>
+									<RotateTransform Angle="{Binding RotateAngle}"
+													 CenterX="{Binding RotateCenter.X, Converter={StaticResource doubleIntConverter}}"
+													 CenterY="{Binding RotateCenter.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<TranslateTransform X="{Binding StartPoint.X, Converter={StaticResource doubleIntConverter}}"
+														Y="{Binding StartPoint.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<ScaleTransform ScaleX="{Binding Scale.X, Converter={StaticResource doubleIntConverter}}"
+												   ScaleY="{Binding Scale.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<SkewTransform AngleX="{Binding Skew.X, Converter={StaticResource doubleIntConverter}}"
+												   AngleY="{Binding Skew.Y, Converter={StaticResource doubleIntConverter}}"/>
+								</TransformGroup>
+							</Polygon.RenderTransform>
+						</Polygon>
+					</DataTemplate>
+
+					<DataTemplate DataType="{x:Type	models:PaintRectangle}">
+						<Rectangle 
+							  Stroke="{Binding Stroke, Converter={StaticResource colorConverter}}"
+							  StrokeThickness="{Binding StrokeThickness}"
+							  Width="{Binding Width}" Height="{Binding Height}"
+							  Fill="{Binding FillColor, Converter={StaticResource colorConverter}}">
+							<Rectangle.RenderTransform>
+								<TransformGroup>
+									<RotateTransform Angle="{Binding RotateAngle}"
+													 CenterX="{Binding RotateCenter.X, Converter={StaticResource doubleIntConverter}}"
+													 CenterY="{Binding RotateCenter.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<TranslateTransform X="{Binding StartPoint.X, Converter={StaticResource doubleIntConverter}}"
+														Y="{Binding StartPoint.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<ScaleTransform ScaleX="{Binding Scale.X, Converter={StaticResource doubleIntConverter}}"
+												   ScaleY="{Binding Scale.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<SkewTransform AngleX="{Binding Skew.X, Converter={StaticResource doubleIntConverter}}"
+												   AngleY="{Binding Skew.Y, Converter={StaticResource doubleIntConverter}}"/>
+								</TransformGroup>
+							</Rectangle.RenderTransform>
+						</Rectangle>
+					</DataTemplate>
+
+					<DataTemplate DataType="{x:Type	models:PaintEllipse}">
+						<Ellipse
+							  Stroke="{Binding Stroke, Converter={StaticResource colorConverter}}"
+							  StrokeThickness="{Binding StrokeThickness}"
+							  Width="{Binding Width}" Height="{Binding Height}"
+							  Fill="{Binding FillColor, Converter={StaticResource colorConverter}}">
+							<Ellipse.RenderTransform>
+								<TransformGroup>
+									<RotateTransform Angle="{Binding RotateAngle}"
+													 CenterX="{Binding RotateCenter.X, Converter={StaticResource doubleIntConverter}}"
+													 CenterY="{Binding RotateCenter.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<TranslateTransform X="{Binding StartPoint.X, Converter={StaticResource doubleIntConverter}}"
+														Y="{Binding StartPoint.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<ScaleTransform ScaleX="{Binding Scale.X, Converter={StaticResource doubleIntConverter}}"
+												   ScaleY="{Binding Scale.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<SkewTransform AngleX="{Binding Skew.X, Converter={StaticResource doubleIntConverter}}"
+												   AngleY="{Binding Skew.Y, Converter={StaticResource doubleIntConverter}}"/>
+								</TransformGroup>
+							</Ellipse.RenderTransform>
+						</Ellipse>
+					</DataTemplate>
+
+					<DataTemplate DataType="{x:Type	models:PaintPath}">
+						<Path
+							  Stroke="{Binding Stroke, Converter={StaticResource colorConverter}}"
+							  StrokeThickness="{Binding StrokeThickness}"
+							  Data="{Binding Data, Converter={StaticResource geometryParser}}"
+							  Fill="{Binding FillColor, Converter={StaticResource colorConverter}}">
+							<Path.RenderTransform>
+								<TransformGroup>
+									<RotateTransform Angle="{Binding RotateAngle}"
+													 CenterX="{Binding RotateCenter.X, Converter={StaticResource doubleIntConverter}}"
+													 CenterY="{Binding RotateCenter.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<TranslateTransform X="{Binding StartPoint.X, Converter={StaticResource doubleIntConverter}}"
+														Y="{Binding StartPoint.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<ScaleTransform ScaleX="{Binding Scale.X, Converter={StaticResource doubleIntConverter}}"
+												   ScaleY="{Binding Scale.Y, Converter={StaticResource doubleIntConverter}}"/>
+									<SkewTransform AngleX="{Binding Skew.X, Converter={StaticResource doubleIntConverter}}"
+												   AngleY="{Binding Skew.Y, Converter={StaticResource doubleIntConverter}}"/>
+								</TransformGroup>
+							</Path.RenderTransform>
+						</Path>
+					</DataTemplate>
+					
+				</ItemsControl.DataTemplates>
+			</ItemsControl>
+			
+			<ListBox Grid.Column="2" Items="{Binding FigureCollection}">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Grid ColumnDefinitions="3*, *">
+							<TextBlock Grid.Column="0" Text="{Binding Name}" />
+							<Button Grid.Column="1" Command="{Binding $parent[ListBox].DataContext.buttonRemove}" CommandParameter="{Binding}" Content="Remove"/>
+						</Grid>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+			
+		</Grid>
+
+		
+	</Grid>
+</Window>

@@ -1,0 +1,88 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+             x:Class="AvaloniaPaint.Views.Pages.AvaloniaPaintEllipseView"
+			 xmlns:local="clr-namespace:AvaloniaPaint.Converters">
+
+	<UserControl.Styles>
+		<Style Selector="TextBlock.s1">
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="Margin" Value="5"/>
+		</Style>
+		<Style Selector="TextBox.s1">
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="Margin" Value="5"/>
+		</Style>
+		<Style Selector="NumericUpDown.s1">
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="Margin" Value="5"/>
+		</Style>
+		<Style Selector="ComboBox.s1">
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="Margin" Value="5"/>
+		</Style>
+	</UserControl.Styles>
+
+	<UserControl.Resources>
+		<local:ColorConverter x:Key="colorConverter"/>
+		<local:StringPointConverter x:Key="stringPointConverter"/>
+		<local:IntToStringConverter x:Key="intToStringConverter"/>
+		<local:StringTransformPointConverter x:Key="stringTransformPointConverter"/>
+	</UserControl.Resources>
+
+	<Grid ColumnDefinitions="0.5*, *" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+		<TextBlock Classes="s1" Grid.Row="0" Grid.Column="0" Text="Имя:" />
+		<TextBox Name="textBoxName" Classes="s1" Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
+		<TextBlock Classes="s1" Grid.Row="1" Grid.Column="0" Text="Начальная точка:"/>
+		<TextBox Name="textBoxStart" Classes="s1" Grid.Row="1" Grid.Column="1"
+				 Text="{Binding StartPoint, Converter={StaticResource stringPointConverter}}"/>
+		<TextBlock Classes="s1" Grid.Row="2" Grid.Column="0" Text="Ширина:"/>
+		<TextBox Name="textBoxWidth" Classes="s1" Grid.Row="2" Grid.Column="1"
+				 Text="{Binding Width, Converter={StaticResource intToStringConverter}}"/>
+		<TextBlock Classes="s1" Grid.Row="3" Grid.Column="0" Text="Высота:"/>
+		<TextBox Name="textBoxHeight" Classes="s1" Grid.Row="3" Grid.Column="1"
+				 Text="{Binding Height, Converter={StaticResource intToStringConverter}}"/>
+		<TextBlock Classes="s1" Grid.Row="4" Grid.Column="0" Text="Цвет линии:"/>
+		<ComboBox Name="comboBoxColor" Classes="s1" Grid.Row="4" Grid.Column="1" SelectedItem="{Binding SelectedColor}"
+				  Items="{Binding FillColors}">
+			<ComboBox.ItemTemplate>
+				<DataTemplate>
+					<Rectangle Fill="{Binding Color, Converter={StaticResource colorConverter}}" Width="200" Height="20"></Rectangle>
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
+		</ComboBox>
+		<TextBlock Classes="s1" Grid.Row="5" Grid.Column="0" Text="Толщина линии:"/>
+		<NumericUpDown Name="numericUpDownStroke" Classes="s1" Grid.Row="5" Grid.Column="1" Minimum="1" Maximum="15" Increment="1"
+                       VerticalAlignment="Center"
+                       Value="{Binding StrokeThickness}"/>
+		<TextBlock Classes="s1" Grid.Row="6" Grid.Column="0" Text="Цвет заливки:"/>
+		<ComboBox Name="comboBoxFillColor" Classes="s1" Grid.Row="6" Grid.Column="1" SelectedItem="{Binding SelectedFillColor}"
+				  Items="{Binding FillColors}">
+			<ComboBox.ItemTemplate>
+				<DataTemplate>
+					<Rectangle Fill="{Binding Color, Converter={StaticResource colorConverter}}" Width="200" Height="20"></Rectangle>
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
+		</ComboBox>
+		<TextBlock Classes="s1" Grid.Row="7" Grid.Column="0" Text="Угол поворота:"/>
+		<TextBox Name="textBoxRenderTransformAngle" Classes="s1" Grid.Row="7" Grid.Column="1"
+				 Text="{Binding RotateAngle, Converter={StaticResource intToStringConverter}}"/>
+
+		<TextBlock Classes="s1" Grid.Row="8" Grid.Column="0" Text="Центр поворота:"/>
+		<TextBox Name="textBoxRotateCenter" Classes="s1" Grid.Row="8" Grid.Column="1"
+				 Text="{Binding RotateCenter, Converter={StaticResource stringTransformPointConverter}}"/>
+
+		<TextBlock Classes="s1" Grid.Row="9" Grid.Column="0" Text="Масштаб:"/>
+		<TextBox Name="textBoxScaleTransform" Classes="s1" Grid.Row="9" Grid.Column="1"
+				 Text="{Binding Scale, Converter={StaticResource stringTransformPointConverter}}"/>
+
+		<TextBlock Classes="s1" Grid.Row="10" Grid.Column="0" Text="Наклон:"/>
+		<TextBox Name="textBoxSkewTransform" Classes="s1" Grid.Row="10" Grid.Column="1"
+				 Text="{Binding Skew, Converter={StaticResource stringTransformPointConverter}}"/>
+	</Grid>
+</UserControl>

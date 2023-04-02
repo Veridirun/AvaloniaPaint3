@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FiguresTree>
+  <Line>
+    <Name>test1</Name>
+    <StrokeThickness>3</StrokeThickness>
+    <Stroke>Black</Stroke>
+    <StartLinePoint>60, 60</StartLinePoint>
+    <StartPoint>0, 0</StartPoint>
+    <EndPoint>120, 120</EndPoint>
+    <RotateAngle>45</RotateAngle>
+    <RotateCenter>10, 10</RotateCenter>
+    <Scale>1, 1</Scale>
+    <Skew>15, 15</Skew>
+  </Line>
+  <Line>
+    <Name>test1.1</Name>
+    <StrokeThickness>3</StrokeThickness>
+    <Stroke>Black</Stroke>
+    <StartLinePoint>120, 120</StartLinePoint>
+    <EndPoint>180, 180</EndPoint>
+    <StartPoint>0, 0</StartPoint>
+    <RotateAngle>45</RotateAngle>
+    <RotateCenter>10, 10</RotateCenter>
+    <Scale>1, 1</Scale>
+    <Skew>-10, 10</Skew>
+  </Line>
+  <Polyline>
+    <Name>test2</Name>
+    <StrokeThickness>11</StrokeThickness>
+    <Stroke>BlueViolet</Stroke>
+    <Points>
+      <Point>80, 80</Point>
+      <Point>100, 80</Point>
+      <Point>120, 100</Point>
+    </Points>
+    <StartPoint>0, 0</StartPoint>
+    <RotateAngle>0</RotateAngle>
+    <RotateCenter>0, 0</RotateCenter>
+    <Scale>1, 1</Scale>
+    <Skew>0, 0</Skew>
+  </Polyline>
+  <Polygon>
+    <Name>test3</Name>
+    <StrokeThickness>5</StrokeThickness>
+    <Stroke>Bisque</Stroke>
+    <Points>
+      <Point>300, 300</Point>
+      <Point>360, 300</Point>
+      <Point>370, 370</Point>
+      <Point>300, 400</Point>
+    </Points>
+    <StartPoint>0, 0</StartPoint>
+    <FillColor>Aquamarine</FillColor>
+    <RotateAngle>0</RotateAngle>
+    <RotateCenter>0, 0</RotateCenter>
+    <Scale>1, 1</Scale>
+    <Skew>0, 0</Skew>
+  </Polygon>
+  <Rectangle>
+    <Name>test4</Name>
+    <StrokeThickness>4</StrokeThickness>
+    <Stroke>BlueViolet</Stroke>
+    <Height>69</Height>
+    <Width>120</Width>
+    <StartPoint>300, 60</StartPoint>
+    <FillColor>Blue</FillColor>
+    <RotateAngle>0</RotateAngle>
+    <RotateCenter>0, 0</RotateCenter>
+    <Scale>1, 1</Scale>
+    <Skew>0, 0</Skew>
+  </Rectangle>
+  <Ellipse>
+    <Name>test5</Name>
+    <StrokeThickness>14</StrokeThickness>
+    <Stroke>Chartreuse</Stroke>
+    <Height>60</Height>
+    <Width>120</Width>
+    <StartPoint>500, 60</StartPoint>
+    <FillColor>CadetBlue</FillColor>
+    <RotateAngle>45</RotateAngle>
+    <RotateCenter>0, 0</RotateCenter>
+    <Scale>1, 1</Scale>
+    <Skew>0, 0</Skew>
+  </Ellipse>
+  <Path>
+    <Name>test6</Name>
+    <StrokeThickness>12</StrokeThickness>
+    <Stroke>Crimson</Stroke>
+    <Data>M 200,200 c 0,0 50,0 50,-50 c 0,0 50,0 50,50 h -50 v 50 l -50,-50 Z</Data>
+    <FillColor>Coral</FillColor>
+    <StartPoint>0, 0</StartPoint>
+    <RotateAngle>45</RotateAngle>
+    <RotateCenter>12, 12</RotateCenter>
+    <Scale>2, 2</Scale>
+    <Skew>15, 15</Skew>
+  </Path>
+</FiguresTree>

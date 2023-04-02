@@ -1,0 +1,373 @@
+{
+  "$type": "System.Collections.Generic.List`1[[AvaloniaPaint.Models.PaintBaseFigure, AvaloniaPaint]], System.Private.CoreLib",
+  "$values": [
+    {
+      "$type": "AvaloniaPaint.Models.PaintLine, AvaloniaPaint",
+      "StartLinePoint": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 60.0,
+        "Y": 60.0,
+        "IsDefault": false
+      },
+      "EndPoint": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 120.0,
+        "Y": 120.0,
+        "IsDefault": false
+      },
+      "Name": "test1",
+      "StrokeThickness": 3,
+      "Stroke": {
+        "$type": "Avalonia.Media.Color, Avalonia.Visuals",
+        "A": 255,
+        "R": 0,
+        "G": 0,
+        "B": 0
+      },
+      "RotateAngle": 45,
+      "RotateCenter": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 10.0,
+        "Y": 10.0,
+        "IsDefault": false
+      },
+      "Scale": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 1.0,
+        "Y": 1.0,
+        "IsDefault": false
+      },
+      "Skew": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 15.0,
+        "Y": 15.0,
+        "IsDefault": false
+      },
+      "StartPoint": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 240.7005813024564,
+        "Y": 104.5111125991769,
+        "IsDefault": false
+      }
+    },
+    {
+      "$type": "AvaloniaPaint.Models.PaintLine, AvaloniaPaint",
+      "StartLinePoint": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 120.0,
+        "Y": 120.0,
+        "IsDefault": false
+      },
+      "EndPoint": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 180.0,
+        "Y": 180.0,
+        "IsDefault": false
+      },
+      "Name": "test1.1",
+      "StrokeThickness": 3,
+      "Stroke": {
+        "$type": "Avalonia.Media.Color, Avalonia.Visuals",
+        "A": 255,
+        "R": 0,
+        "G": 0,
+        "B": 0
+      },
+      "RotateAngle": 45,
+      "RotateCenter": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 10.0,
+        "Y": 10.0,
+        "IsDefault": false
+      },
+      "Scale": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 1.0,
+        "Y": 1.0,
+        "IsDefault": false
+      },
+      "Skew": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": -10.0,
+        "Y": 10.0,
+        "IsDefault": false
+      },
+      "StartPoint": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 124.86058240590305,
+        "Y": -20.326495925265334,
+        "IsDefault": false
+      }
+    },
+    {
+      "$type": "AvaloniaPaint.Models.PaintPolyline, AvaloniaPaint",
+      "Points": {
+        "$type": "System.Collections.Generic.List`1[[Avalonia.Point, Avalonia.Visuals]], System.Private.CoreLib",
+        "$values": [
+          {
+            "$type": "Avalonia.Point, Avalonia.Visuals",
+            "X": 80.0,
+            "Y": 80.0,
+            "IsDefault": false
+          },
+          {
+            "$type": "Avalonia.Point, Avalonia.Visuals",
+            "X": 100.0,
+            "Y": 80.0,
+            "IsDefault": false
+          },
+          {
+            "$type": "Avalonia.Point, Avalonia.Visuals",
+            "X": 120.0,
+            "Y": 100.0,
+            "IsDefault": false
+          }
+        ]
+      },
+      "Name": "test2",
+      "StrokeThickness": 11,
+      "Stroke": {
+        "$type": "Avalonia.Media.Color, Avalonia.Visuals",
+        "A": 255,
+        "R": 138,
+        "G": 43,
+        "B": 226
+      },
+      "RotateAngle": 0,
+      "RotateCenter": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 0.0,
+        "Y": 0.0,
+        "IsDefault": true
+      },
+      "Scale": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 1.0,
+        "Y": 1.0,
+        "IsDefault": false
+      },
+      "Skew": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 0.0,
+        "Y": 0.0,
+        "IsDefault": true
+      },
+      "StartPoint": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 88.0,
+        "Y": -4.0,
+        "IsDefault": false
+      }
+    },
+    {
+      "$type": "AvaloniaPaint.Models.PaintPolygon, AvaloniaPaint",
+      "Points": {
+        "$type": "System.Collections.Generic.List`1[[Avalonia.Point, Avalonia.Visuals]], System.Private.CoreLib",
+        "$values": [
+          {
+            "$type": "Avalonia.Point, Avalonia.Visuals",
+            "X": 300.0,
+            "Y": 300.0,
+            "IsDefault": false
+          },
+          {
+            "$type": "Avalonia.Point, Avalonia.Visuals",
+            "X": 360.0,
+            "Y": 300.0,
+            "IsDefault": false
+          },
+          {
+            "$type": "Avalonia.Point, Avalonia.Visuals",
+            "X": 370.0,
+            "Y": 370.0,
+            "IsDefault": false
+          },
+          {
+            "$type": "Avalonia.Point, Avalonia.Visuals",
+            "X": 300.0,
+            "Y": 400.0,
+            "IsDefault": false
+          }
+        ]
+      },
+      "FillColor": {
+        "$type": "Avalonia.Media.Color, Avalonia.Visuals",
+        "A": 255,
+        "R": 127,
+        "G": 255,
+        "B": 212
+      },
+      "Name": "test3",
+      "StrokeThickness": 5,
+      "Stroke": {
+        "$type": "Avalonia.Media.Color, Avalonia.Visuals",
+        "A": 255,
+        "R": 255,
+        "G": 228,
+        "B": 196
+      },
+      "RotateAngle": 0,
+      "RotateCenter": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 0.0,
+        "Y": 0.0,
+        "IsDefault": true
+      },
+      "Scale": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 1.0,
+        "Y": 1.0,
+        "IsDefault": false
+      },
+      "Skew": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 0.0,
+        "Y": 0.0,
+        "IsDefault": true
+      },
+      "StartPoint": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": -45.0,
+        "Y": -15.0,
+        "IsDefault": false
+      }
+    },
+    {
+      "$type": "AvaloniaPaint.Models.PaintRectangle, AvaloniaPaint",
+      "Height": 69,
+      "Width": 120,
+      "FillColor": {
+        "$type": "Avalonia.Media.Color, Avalonia.Visuals",
+        "A": 255,
+        "R": 0,
+        "G": 0,
+        "B": 255
+      },
+      "Name": "test4",
+      "StrokeThickness": 4,
+      "Stroke": {
+        "$type": "Avalonia.Media.Color, Avalonia.Visuals",
+        "A": 255,
+        "R": 138,
+        "G": 43,
+        "B": 226
+      },
+      "RotateAngle": 0,
+      "RotateCenter": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 0.0,
+        "Y": 0.0,
+        "IsDefault": true
+      },
+      "Scale": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 1.0,
+        "Y": 1.0,
+        "IsDefault": false
+      },
+      "Skew": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 0.0,
+        "Y": 0.0,
+        "IsDefault": true
+      },
+      "StartPoint": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 267.0,
+        "Y": 120.0,
+        "IsDefault": false
+      }
+    },
+    {
+      "$type": "AvaloniaPaint.Models.PaintEllipse, AvaloniaPaint",
+      "Height": 60,
+      "Width": 120,
+      "FillColor": {
+        "$type": "Avalonia.Media.Color, Avalonia.Visuals",
+        "A": 255,
+        "R": 95,
+        "G": 158,
+        "B": 160
+      },
+      "Name": "test5",
+      "StrokeThickness": 14,
+      "Stroke": {
+        "$type": "Avalonia.Media.Color, Avalonia.Visuals",
+        "A": 255,
+        "R": 127,
+        "G": 255,
+        "B": 0
+      },
+      "RotateAngle": 45,
+      "RotateCenter": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 0.0,
+        "Y": 0.0,
+        "IsDefault": true
+      },
+      "Scale": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 1.0,
+        "Y": 1.0,
+        "IsDefault": false
+      },
+      "Skew": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 0.0,
+        "Y": 0.0,
+        "IsDefault": true
+      },
+      "StartPoint": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 542.2426406883885,
+        "Y": 84.58578644143438,
+        "IsDefault": false
+      }
+    },
+    {
+      "$type": "AvaloniaPaint.Models.PaintPath, AvaloniaPaint",
+      "Data": "M 200,200 c 0,0 50,0 50,-50 c 0,0 50,0 50,50 h -50 v 50 l -50,-50 Z",
+      "FillColor": {
+        "$type": "Avalonia.Media.Color, Avalonia.Visuals",
+        "A": 255,
+        "R": 255,
+        "G": 127,
+        "B": 80
+      },
+      "Name": "test6",
+      "StrokeThickness": 12,
+      "Stroke": {
+        "$type": "Avalonia.Media.Color, Avalonia.Visuals",
+        "A": 255,
+        "R": 220,
+        "G": 20,
+        "B": 60
+      },
+      "RotateAngle": 45,
+      "RotateCenter": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 12.0,
+        "Y": 12.0,
+        "IsDefault": false
+      },
+      "Scale": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 2.0,
+        "Y": 2.0,
+        "IsDefault": false
+      },
+      "Skew": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 15.0,
+        "Y": 15.0,
+        "IsDefault": false
+      },
+      "StartPoint": {
+        "$type": "Avalonia.Point, Avalonia.Visuals",
+        "X": 122.18524762841395,
+        "Y": -65.39851390707588,
+        "IsDefault": false
+      }
+    }
+  ]
+}
